@@ -18,4 +18,12 @@ class Material extends Model
         'link',
         'additional',
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function slices()
+    {
+        return $this->hasMany(Slice::class);
+    }
 }
