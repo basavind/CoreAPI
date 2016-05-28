@@ -16,7 +16,9 @@ class MaterialController extends Controller
      */
     public function index()
     {
-        return Material::all();
+        $materials = Material::all();
+
+        return response($materials, Response::HTTP_OK);
     }
 
     /**
@@ -26,13 +28,9 @@ class MaterialController extends Controller
      */
     public function create(Request $request)
     {
-        try {
-            Material::create($request->all());
-        } catch (\Exception $e) {
-            return response($e->getMessage(), Response::HTTP_BAD_REQUEST);
-        }
+        $material = Material::create($request->all());
 
-        return Response::HTTP_CREATED;
+        return response($material, Response::HTTP_CREATED);
     }
 
     /**
@@ -42,14 +40,9 @@ class MaterialController extends Controller
      */
     public function show($id)
     {
-        $material = null;
-        try {
-            $material = Material::findOrFail($id);
-        } catch (\Exception $e) {
-            return response($e->getMessage(), Response::HTTP_NOT_FOUND);
-        }
+        $material = Material::findOrFail($id);
 
-        return $material;
+        return response($material, Response::HTTP_OK);
     }
 
     /**
@@ -59,13 +52,8 @@ class MaterialController extends Controller
      */
     public function destroy($id)
     {
-        try {
-            $material = Material::findOrFail($id);
-        } catch (\Exception $e) {
-            return response($e->getMessage(), Response::HTTP_NOT_FOUND);
-        }
-
-        $material->delete();
+        Material::findOrFail($id)
+            ->delete();
 
         return Response::HTTP_OK;
     }
@@ -78,14 +66,9 @@ class MaterialController extends Controller
      */
     public function update(Request $request, $id)
     {
-        try {
-            $material = Material::findOrFail($id);
-            $material->fill($request->all());
-            $material->save();
-        } catch (\Exception $e) {
-            return response($e->getMessage(), Response::HTTP_I_AM_A_TEAPOT);
-        }
+        $material = Material::findOrFail($id)
+            ->update($request->all());
 
-        return Response::HTTP_OK;
+        return response($material, Response::HTTP_OK);
     }
 }
