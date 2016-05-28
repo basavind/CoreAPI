@@ -11,6 +11,8 @@
 |
 */
 
-$app->get('/', function () use ($app) {
-    return $app->version();
-});
+$app->get('material', 'MaterialController@index');
+$app->post('material', 'MaterialController@create');
+$app->get('material/{material}', 'MaterialController@show');
+$app->delete('material/{material}', 'MaterialController@destroy');
+$app->patch('material/{material}', 'MaterialController@update');
