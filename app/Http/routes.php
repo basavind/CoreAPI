@@ -16,3 +16,11 @@ $app->post('material', 'MaterialController@create');
 $app->get('material/{material}', 'MaterialController@show');
 $app->delete('material/{material}', 'MaterialController@destroy');
 $app->patch('material/{material}', 'MaterialController@update');
+
+$app->group(['prefix' => 'material/{material}', 'namespace' => 'App\Http\Controllers'], function () use ($app) {
+    $app->get('slice', 'SliceController@index');
+    $app->post('slice', 'SliceController@create');
+    $app->get('slice/{slice_id}', 'SliceController@show');
+    $app->delete('slice/{slice}', 'SliceController@destroy');
+    $app->patch('slice/{slice}', 'SliceController@update');
+});
