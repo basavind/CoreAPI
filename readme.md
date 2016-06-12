@@ -58,7 +58,14 @@ __DELETE /material/{material}/slice/{slice}__ - удаление куска ма
 4. Настройка окружения в .env:
   * Настройка подключения PostgreSQL
   * Установка уникального ключа (APP_KEY)
-5. php artisan migrate:install
+5. php artisan migrate
+
+# Деплой
+
+1. git pull
+2. composer install
+3. php artisan migrate
+4. Перезагрузить php для сброса кэша
 
 # License
 
