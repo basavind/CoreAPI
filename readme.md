@@ -43,10 +43,14 @@ __PATCH /material/{material}/slice/{slice}__ - апдейт слайса мат�
 __DELETE /material/{material}/slice/{slice}__ - удаление куска материала 
 
 # Установка
+
 ## Зависимости
+
 * Composer
 * PostgreSQL
+
 ## Процесс установки
+
 1. git clone https://github.com/kursomir/CoreAPI.git
 2. cd CoreAPI
 2. composer install
