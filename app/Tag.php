@@ -14,6 +14,10 @@ class Tag extends Model
         'specialization'
     ];
 
+    protected $fillable = [
+        'text'
+    ];
+
     /**
      * Get materials associated with the given tag
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
