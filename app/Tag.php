@@ -9,6 +9,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Tag extends Model
 {
+    protected $fillable = [
+        'name',
+    ];
+
     /**
      * Get materials associated with the given tag.
      *

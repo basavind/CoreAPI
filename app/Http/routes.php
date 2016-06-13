@@ -24,3 +24,11 @@ $app->group(['prefix' => 'material/{material}', 'namespace' => 'App\Http\Control
     $app->delete('slice/{slice}', 'SliceController@destroy');
     $app->patch('slice/{slice}', 'SliceController@update');
 });
+
+$app->group(['prefix' => 'tag', 'namespace' => 'App\Http\Controllers'], function () use ($app) {
+    $app->get('/', 'TagController@index');
+    $app->post('/', 'TagController@create');
+    $app->get('/{tag}', 'TagController@show');
+    $app->delete('/{tag}', 'TagController@destroy');
+    $app->patch('/{tag}', 'TagController@update');
+});
