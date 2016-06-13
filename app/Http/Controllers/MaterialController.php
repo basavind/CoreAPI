@@ -41,7 +41,7 @@ class MaterialController extends Controller
     public function show($id)
     {
         $material = Material::findOrFail($id);
-        $material->load('tags');
+        #$material->load('tags');
 
         return response($material, Response::HTTP_OK);
     }

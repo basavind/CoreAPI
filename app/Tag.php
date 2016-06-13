@@ -15,7 +15,7 @@ class Tag extends Model
     ];
 
     protected $fillable = [
-        'text'
+        'text', 'type'
     ];
 
     /**
