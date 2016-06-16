@@ -32,7 +32,7 @@ class Material extends Model
      */
     public function tags()
     {
-        return $this->belongsToMany('App\Tag')->withTimestamps();
+        return $this->morphToMany('App\Tag', 'taggables')->withTimestamps();
     }
 
     /**

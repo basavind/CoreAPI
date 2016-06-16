@@ -24,6 +24,6 @@ class Tag extends Model
      */
     public function materials()
     {
-        return $this->belongsToMany('App\Material', "material_tag");
+        return $this->morphedByMany('App\Material', 'taggables');
     }
 }
