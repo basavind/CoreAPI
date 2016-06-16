@@ -28,6 +28,11 @@ $app->group(['prefix' => 'material/{material}', 'namespace' => 'App\Http\Control
     $app->post('tag', 'TagController@create');
     $app->get('tag/{tag_id}', 'TagController@show');
     $app->patch('tag/{tag_id}', 'TagController@update');
-    $app->delete('tag/{tag_id}', 'TagController@destroy');
+    $app->delete('tag/{tag_id}', 'TagController@detach');
 
 });
+
+$app->get('tag', 'TagController@list_tag');
+//$app->post('tag', 'TagController@create');
+$app->patch('tag/{tag_id}', 'TagController@update');
+$app->delete('tag/{tag_id}', 'TagController@destroy');

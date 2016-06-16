@@ -7,6 +7,7 @@ use App\Slice;
 use App\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use phpDocumentor\Reflection\Types\Integer;
 
 /**
  * Class TagController.
@@ -21,11 +22,16 @@ class TagController extends Controller
     public function index($materialId)
     {
         $tags = Material::findOrFail($materialId)->tags;
-        $res = array();
-        foreach ($tags as $tag) {
-            array_push($res, array($tag->type => $tag->text));
-        }
-        return response($res, Response::HTTP_OK);
+        return response($tags, Response::HTTP_OK);
+    }
+
+    /**
+     * Returns all tags in system
+     * @return Response
+     */
+    public function list_tag()
+    {
+        return response(Tag::all(), Response::HTTP_OK);
     }
 
     /**
@@ -65,7 +71,7 @@ class TagController extends Controller
      *
      * @internal param $id
      */
-    public function destroy($tag_id, $materialId)
+    public function detach($tag_id, $materialId)
     {
         Material::findOrFail($materialId)->tags()->detach($tag_id);
 
@@ -73,8 +79,18 @@ class TagController extends Controller
     }
 
     /**
+     * @param $id Integer id of tag for delete
+     * @return Response
+     */
+    public function destroy($id)
+    {
+        Tag::findOrFail($id)->delete();
+        return response('', Response::HTTP_OK);
+    }
+
+    /**
      * @param \Illuminate\Http\Request $request
-     * @param $tag_id
+     * @param Integer $tag_id id of tag for update
      * @param $materialId
      * @return int
      * @internal param $modelId
