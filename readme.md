@@ -33,11 +33,6 @@ __GET /material/{material}__ - возвращает объект Material
 
 __PATCH /material/{material}__ - апдейт объекта Material
 
-* _name_ - обязательно
-* _type_ - обязательно
-* _link_ - необязательно
-* _additional_ - необязательно
-
 __DELETE /material/{material}__ - удаление объекта Material (может и не понадобится)
 
 ## Slices
@@ -47,16 +42,12 @@ __GET /material/{material}/slice__ - получение всех слайсов 
 __POST /material/{material}/slice__ - создание нового слайса, параметры
 
 * _id_ - необязательно
-* _material_id_ - обязательно
-* _content_ - необязательно
+* _material_id_ - необязательно
+* _content_ - обязательно
 
 __GET /material/{material}/slice/{slice}__ - возвращает слайс материала
 
 __PATCH /material/{material}/slice/{slice}__ - апдейт слайса материала
-
-* _id_ - необязательно
-* _material_id_ - обязательно
-* _content_ - необязательно
 
 __DELETE /material/{material}/slice/{slice}__ - удаление куска материала 
 
