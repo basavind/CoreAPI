@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMaterialTable extends Migration
+class CreateTaggableTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,11 @@ class CreateMaterialTable extends Migration
      */
     public function up()
     {
-        Schema::create('materials', function (Blueprint $table) {
+        Schema::create('taggables', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('type');
-            $table->string('link')->nullable();
-            $table->json('additional')->nullable();
+            $table->integer('tag_id');
+            $table->integer('taggables_id');
+            $table->string('taggables_type');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateMaterialTable extends Migration
      */
     public function down()
     {
-        Schema::drop('materials');
+        Schema::drop('taggables');
     }
 }

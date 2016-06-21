@@ -2,8 +2,10 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\Schema;
 
-class CreateMaterialTable extends Migration
+
+class CreateTagTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,14 +14,13 @@ class CreateMaterialTable extends Migration
      */
     public function up()
     {
-        Schema::create('materials', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
             $table->string('type');
-            $table->string('link')->nullable();
-            $table->json('additional')->nullable();
+            $table->string('text');
             $table->timestamps();
         });
+        
     }
 
     /**
@@ -29,6 +30,7 @@ class CreateMaterialTable extends Migration
      */
     public function down()
     {
-        Schema::drop('materials');
+        Schema::drop('tags');
+        
     }
 }

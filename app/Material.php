@@ -26,4 +26,27 @@ class Material extends Model
     {
         return $this->hasMany(Slice::class);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function tags()
+    {
+        return $this->morphToMany('App\Tag', 'taggables')->withTimestamps();
+    }
+
+    /**
+     * Attach tag to material
+     * @param Tag $tag Tag to attach to model
+     * @return bool false, if this tag is already attached, true otherwise
+     */
+    public function addTag(Tag $tag)
+    {
+        if (!$this->tags()->find($tag->id)) {
+            $this->tags()->attach($tag->id);
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

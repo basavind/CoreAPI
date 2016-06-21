@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        #TODO Удалить это и из composer.json 
+        \Mlntn\Console\Commands\Serve::class,
     ];
 
     /**
