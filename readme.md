@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/kursomir/CoreAPI.svg?branch=master)](https://travis-ci.org/kursomir/CoreAPI)
+
 # Структуры
 ## Material
 
