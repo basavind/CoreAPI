@@ -20,4 +20,4 @@ before_script:
 
 script:
      - php vendor/bin/phpunit
-     - php vendor/bin/php-cs-fixer --diff --dry-run -v --level=psr2 --fixers=-psr0 fix .
+     - php vendor/bin/php-cs-fixer --diff --dry-run -v --level=symfony --fixers=-psr0 fix .
